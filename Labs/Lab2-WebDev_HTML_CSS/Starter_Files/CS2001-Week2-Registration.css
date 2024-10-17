@@ -50,7 +50,8 @@ ul.navlist li a:hover {
 
 main {
     border-bottom: 0.5rem solid;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: left;
     /*ToDo: Make this a flexible container; 
     You can find the following helpful: display, flex-wrap, width, min-height, height
     See lecture slides*/
@@ -63,9 +64,15 @@ section, aside {
 }
 
 aside {
+    clear: both;
+    justify-content: left;
     /*ToDo: Set width.ToDo: For fluid layouts, use min-width, max-width, and set to relative 
    values, like 25% of the page.*/ 
     background-color: #deded8;
+    width: 25%;
+    margin-right: 15%;
+    
+    
 }
 
 section {
