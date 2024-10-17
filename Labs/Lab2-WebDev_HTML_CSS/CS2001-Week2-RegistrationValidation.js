@@ -18,16 +18,15 @@ var tosCheckBox=false;
 
 //Function to read the form
 function readForm(){
-   formData.username = document.getElementById("name").value.trim();
-   formData.email = document.getElementById("email").value.trim();
-   formData.password = document.getElementById("password").value.trim();
-   repPassword = document.getElementById("repPassword").value.trim();
+   formData.username = document.getElementById("username").value;
+   formData.email = document.getElementById("email").value;
+   formData.password = document.getElementById("password").value;
+   repPassword = document.getElementById("repPassword").value;
 
     //Read the buyer and seller checkboxes 
     formData.buyer = document.getElementById("buyer").checked;
     formData.seller = document.getElementById("seller").checked;
-
-    tosCheckBox = document.getElementById("tos").checked;
+    tosCheckBox = document.getElementById("agree").checked;
 
 }
 
@@ -35,7 +34,6 @@ function readForm(){
 function validateForm() {
     formValid = false;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-   
     if ((formData.username.length==0) || 
            (formData.email.length==0)  ||
            (formData.password.length==0) ||
@@ -47,8 +45,11 @@ function validateForm() {
         alert("Password is too short. Please select another password");
     } else if(formData.password !== repPassword) {
         alert("Passwords do not match. Please retry");
-    } else if(!formData.buyer && !formData.seller){
+    }else if((!formData.buyer && !formData.seller)){
+        alert ("HERE")
         alert("Please check at least one checkbox to be a seller or a buyer.")
+    }else if(formData.buyer && formData.seller) {
+        alert("You cannot be both a buyer and seller. Please select only one option.")
     } else if (!tosCheckBox){ 
         alert("Please agree to the Terms and Conditions, and Privacy Policy.")
     }else {
